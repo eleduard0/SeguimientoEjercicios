@@ -45,20 +45,17 @@ namespace SeguimientoEjercicios.ViewModels
         {
 
         }
-        // Método para iniciar sesión
         public async void OnLoginClicked(object obj)
         {
-            // Variables para el inicio de sesión
-            var userService = new UserService(); // Instancia de UserService
-            var isLoggedIn = await userService.LoginAsync(Email, Password); // Llama al método LoginAsync de UserService
+            
+            var userService = new UserService(); 
+            var isLoggedIn = await userService.UserLogin(Email, Password); 
 
-            // Comprueba si el inicio de sesión fue exitoso
             if (isLoggedIn)
             {
-                // Si el inicio de sesión fue exitoso, muestra un mensaje de alerta y navega a la página principal
                 await Navigation.PushAsync(new Inicio());
 
-                var currentUser = await userService.GetCurrentUserAsync(); // Obtiene el usuario actual
+                var currentUser = await userService.GetCurrentUserAsync(); 
                 await Application.Current.MainPage.DisplayAlert("Bienvenido", $"¡Hola {currentUser.Info.DisplayName}!", "OK");
             }
         }
