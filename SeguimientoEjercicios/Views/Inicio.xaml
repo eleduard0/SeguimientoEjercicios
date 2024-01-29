@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeguimientoEjercicios.Views.Inicio"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+        <Frame BackgroundColor="#5f765f" CornerRadius="10" Margin="10" HasShadow="False">
+            <Label Text="Quema de calorías" TextColor="White" FontAttributes="Bold" FontSize="28" HorizontalOptions="CenterAndExpand"/>
+        </Frame>
+
+        <StackLayout>
+            <Label Text="¿Cuántas calorías deseas quemar?" TextColor="#5f765f" FontSize="18" HorizontalOptions="Center"/>
+            <Entry x:Name="calorias" Text="{Binding Calorias}" Placeholder="Calorías..." PlaceholderColor="Gray" TextColor="Black" Keyboard="Numeric" BackgroundColor="WhiteSmoke" WidthRequest="250" HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <Grid RowDefinitions="auto,*" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" ColumnSpacing="25" RowSpacing="25" Margin="10,30">
+            <Label Text="Kilómetros dia 1:" TextColor="#5f765f" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" FontSize="18"/>
+            <Entry x:Name="dia1" Text="{Binding Dia1}" Grid.Column="1" Grid.Row="0" Placeholder="Km" PlaceholderColor="Gray" TextColor="Black" Keyboard="Numeric" BackgroundColor="WhiteSmoke" />
+
+            <Label Text="Kilómetros dia 2:" TextColor="#5f765f" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" FontSize="18"/>
+            <Entry x:Name="dia2" Grid.Column="1" Text="{Binding Dia2}" Grid.Row="1" Placeholder="Km"  PlaceholderColor="Gray" TextColor="Black" Keyboard="Numeric" BackgroundColor="WhiteSmoke"/>
+
+            <Label Text="Kilómetros dia 3:" TextColor="#5f765f" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" FontSize="18"/>
+            <Entry x:Name="dia3" Text="{Binding Dia3}" Grid.Column="1" Grid.Row="2" Placeholder="Km"  PlaceholderColor="Gray" TextColor="Black" Keyboard="Numeric" BackgroundColor="WhiteSmoke"/>
+        </Grid>
+        <StackLayout>
+            <Button x:Name="button" Text="Calcular" HorizontalOptions="Center" WidthRequest="250" CornerRadius="10" BackgroundColor="#5f765f" Command="{Binding Calcularcaloriascommand}" >
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference calorias}, Path=Text.Length}" Value="0"/>
+                            <BindingCondition Binding="{Binding Source={x:Reference dia1}, Path=Text.Length}" Value="0"/>
+                            <BindingCondition Binding="{Binding Source={x:Reference dia2}, Path=Text.Length}" Value="0"/>
+                            <BindingCondition Binding="{Binding Source={x:Reference dia3}, Path=Text.Length}" Value="0"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>
+        </StackLayout>
+        <Label Text="{Binding Resultado} " FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" TextColor="#5f765f">
+            <Label.Triggers>
+                <DataTrigger TargetType="Label" Binding="{Binding Resultado}" Value="Alcanzaste tu meta">
+                    <Setter Property="TextColor" Value="#5f765f" />
+                </DataTrigger>
+                <DataTrigger TargetType="Label" Binding="{Binding Resultado}" Value="No alcanzaste tu meta">
+                    <Setter Property="TextColor" Value="Red" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+    </StackLayout>
+</ContentPage>

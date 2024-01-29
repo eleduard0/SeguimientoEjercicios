@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeguimientoEjercicios.Views.Login"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        
+        <StackLayout >
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Source="https://i.ibb.co/851CsBD/logo-Ejercicio.jpg" Margin="0,50,0,0" HeightRequest="150" WidthRequest="150"/>
+                <Label Text="Inicio de sesión" HorizontalOptions="Center" TextColor="#5f765f" FontAttributes="Bold" FontSize="20" Margin="0,80,0,0"/>
+                <Entry  WidthRequest="300" Text="{Binding Email}"  Placeholder="Correo electrónico" PlaceholderColor="#dadada" TextColor="Black"/>
+                <Entry  Placeholder="Contraseña" Text="{Binding Password}" PlaceholderColor="#dadada" TextColor="Black" IsPassword="True"/>
+                <Button Text="Iniciar sesión" BackgroundColor="#5f765f" CornerRadius="10" Command="{Binding LoginCommand}"/>
+                
+                <Button Text="Registrarse" BackgroundColor="Transparent" TextColor="#3B83BD" Margin="0,30,0,0"  FontAttributes="Italic" CornerRadius="10" />
+                
+            </StackLayout>
+            
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
