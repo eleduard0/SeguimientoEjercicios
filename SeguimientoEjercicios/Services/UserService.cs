@@ -40,6 +40,22 @@ namespace SeguimientoEjercicios.Services
 
             }
         }
+        public async Task<bool> Register(string email, string password)
+        {
+            try
+            {
+                userCredential = await FirebaseAuthInstance.CreateUserWithEmailAndPasswordAsync(email, password);
+                var user = userCredential.User;
+                token = await user.GetIdTokenAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Alerta", ex.Message, "ok");
+                return false;
+
+            }
+        }
         public async Task<User> GetCurrentUserAsync()
         {
             try

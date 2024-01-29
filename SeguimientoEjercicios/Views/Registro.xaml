@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeguimientoEjercicios.Views.Registro"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Margin="0,100">
+                <Label Text="Registro" HorizontalOptions="Center" TextColor="#5f765f" FontAttributes="Bold" FontSize="20" Margin="0,80,0,0"/>
+                <Entry  WidthRequest="300" Text="{Binding Email}"  Placeholder="Correo electrónico" PlaceholderColor="#dadada" TextColor="Black"/>
+                <Entry  Placeholder="Contraseña" Text="{Binding Password}" PlaceholderColor="#dadada" TextColor="Black" IsPassword="True"/>
+                <Button Text="Registrarse" BackgroundColor="LightGray" CornerRadius="10" Command="{Binding RegisterCommand}"/>
+
+                
+
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -13,8 +13,8 @@
                 <Entry  WidthRequest="300" Text="{Binding Email}"  Placeholder="Correo electrónico" PlaceholderColor="#dadada" TextColor="Black"/>
                 <Entry  Placeholder="Contraseña" Text="{Binding Password}" PlaceholderColor="#dadada" TextColor="Black" IsPassword="True"/>
                 <Button Text="Iniciar sesión" BackgroundColor="#5f765f" CornerRadius="10" Command="{Binding LoginCommand}"/>
-                
-                <Button Text="Registrarse" BackgroundColor="Transparent" TextColor="#3B83BD" Margin="0,30,0,0"  FontAttributes="Italic" CornerRadius="10" />
+
+                <Button Text="Registrarse" BackgroundColor="Transparent" TextColor="#3B83BD" Margin="0,30,0,0"  FontAttributes="Italic" CornerRadius="10" Command="{Binding Iraregistrocommand}"/>
                 
             </StackLayout>
             
